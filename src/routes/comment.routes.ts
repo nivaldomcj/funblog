@@ -5,7 +5,7 @@ import {
   listComments,
   updateComment,
 } from '../handlers/comment.handlers';
-import { post } from './post.groups';
+import { post } from './post.routes';
 
 // Comment is a child of Post
 export const comment = post
