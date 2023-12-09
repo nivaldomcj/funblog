@@ -41,7 +41,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - [ ] Implement pagination
     - [ ] Add filters to search posts by something
 - [ ] Extras:
-    - [x] Create docker-compose file
+    - [x] ~~Create docker-compose file~~
     - [ ] Create Dockerfile
     - [ ] Rewrite "how to run" section
     - [ ] Implement GraphQL?
