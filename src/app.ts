@@ -1,7 +1,7 @@
 import { Elysia } from 'elysia';
 import { BadRequestError } from './errors/badrequest.errors';
 import { ForbiddenError } from './errors/forbidden.errors';
-import routes from './routes';
+import groups from './groups';
 
 const app = new Elysia()
   .error({
@@ -19,7 +19,7 @@ const app = new Elysia()
         return { code, message: error.message };
     }
   })
-  .use(routes)
+  .use(groups)
   .listen(3000);
 
 console.log(
