@@ -4,7 +4,9 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "generate": "drizzle-kit generate:pg",
+    "migrate": "bun src/databases/migrate.ts"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.13.2",
@@ -12,10 +14,9 @@
     "drizzle-orm": "^0.29.1",
     "elysia": "latest",
     "eslint-plugin-drizzle": "^0.2.2",
-    "pg": "^8.11.3"
+    "postgres": "^3.4.3"
   },
   "devDependencies": {
-    "@types/pg": "^8.10.9",
     "bun-types": "latest",
     "drizzle-kit": "^0.20.6"
   },
