@@ -17,6 +17,8 @@ This is a simple "blog" project I did for fun to learn while I'm learning the fo
 
 This is just for myself to remember what to do here. Hope it will be fully finished.
 
+- [ ] Create dockerfile/docker-compose?
+- [ ] Rewrite "how to run" section
 - [ ] Implement auth (JWT?)
 - [ ] Implement pagination?
 - [ ] Add filters to search posts by something?
