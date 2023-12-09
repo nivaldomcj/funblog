@@ -24,16 +24,16 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ Comment entities: id, author[user], [post], text, created_at, updated_at
 - ❌ Implement routes:
     - ❌ POST /login => do login
-    - ❌ POST /register => create new user
+    - ❌ POST /register => create user
     - ❌ PUT /profile => update user data [need auth]
     - ❌ GET /users/:id => get user info by id [need auth]
     - ❌ GET /posts => list all posts
     - ❌ GET /posts/:id => get post by id
-    - ❌ POST /posts => create new post [need auth]
+    - ❌ POST /posts => create post [need auth]
     - ❌ PUT /posts/:id => update post [need auth] (update own post)
     - ❌ DELETE /posts/:id => delete post [need auth] (delete own post)
     - ❌ GET /posts/:id/comments => list post comments
-    - ❌ POST /posts/:id/comments => create new comment [need auth]
+    - ❌ POST /posts/:id/comments => create comment [need auth]
     - ❌ GET /posts/:id/comments/:id => get comment by id [need auth]
     - ❌ PUT /posts/:id/comments/:id => update a comment by id [need auth]
     - ❌ DELETE /posts/:id/comments/:id => delete a comment by id [need auth]
