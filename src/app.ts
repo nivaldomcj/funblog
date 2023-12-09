@@ -1,10 +1,7 @@
 import { Elysia } from 'elysia';
 import { BadRequestError } from './errors/badrequest.errors';
 import { ForbiddenError } from './errors/forbidden.errors';
-import { auth } from './groups/auth.groups';
-import { comment } from './groups/comment.groups';
-import { post } from './groups/post.groups';
-import { user } from './groups/user.groups';
+import routes from './routes';
 
 const app = new Elysia()
   .error({
@@ -22,10 +19,7 @@ const app = new Elysia()
         return { code, message: error.message };
     }
   })
-  .use(auth)
-  .use(user)
-  .use(post)
-  .use(comment)
+  .use(routes)
   .listen(3000);
 
 console.log(

@@ -7,7 +7,7 @@ import {
   updatePost,
 } from '../handlers/post.handlers';
 
-export const post = new Elysia({ prefix: 'post' })
+export default new Elysia({ prefix: 'post' })
   .get('/', listPosts)
   .get('/:postId', getPost)
   .post('/', createPost)

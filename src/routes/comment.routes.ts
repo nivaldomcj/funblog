@@ -5,10 +5,10 @@ import {
   listComments,
   updateComment,
 } from '../handlers/comment.handlers';
-import { post } from './post.routes';
+import postRoutes from './post.routes';
 
 // Comment is a child of Post
-export const comment = post
+export default postRoutes
   .get('/:postId/comment', listComments)
   .get('/:postId/comment/:commentId', getComment)
   .post('/:postId/comment', createComment)
