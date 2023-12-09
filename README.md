@@ -1,4 +1,4 @@
-# bedblog
+# funblog
 
 This is a simple "blog" project I did for fun to learn while I'm learning the following stack:
 
