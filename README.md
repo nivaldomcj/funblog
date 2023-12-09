@@ -1,6 +1,6 @@
 # funblog
 
-This is a simple "blog" project I did for fun to learn while I'm learning the following stack:
+This is a simple "blog" backend project I did for fun to learn while I'm learning the following stack:
 
 - Bun
 - ElysiaJS
@@ -41,6 +41,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - [ ] Implement pagination
     - [ ] Add filters to search posts by something
 - [ ] Extras:
-    - [ ] Create dockerfile/docker-compose?
+    - [x] Create docker-compose file
+    - [ ] Create Dockerfile
     - [ ] Rewrite "how to run" section
     - [ ] Implement GraphQL?
