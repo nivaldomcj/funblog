@@ -9,6 +9,7 @@
     "db-migrate": "bun src/databases/migrate.ts"
   },
   "dependencies": {
+    "@elysiajs/jwt": "^0.7.0",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "drizzle-orm": "^0.29.1",

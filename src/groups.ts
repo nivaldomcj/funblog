@@ -1,5 +1,4 @@
 import Elysia from 'elysia';
-import authRoutes from './groups/auth.groups';
 import commentRoutes from './groups/comment.routes';
 import postRoutes from './groups/post.routes';
 import userRoutes from './groups/user.routes';

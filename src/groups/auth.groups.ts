@@ -1,18 +1,75 @@
-// import Elysia from 'elysia';
-// import { login, loginHandler, register } from '../handlers/auth.handlers';
-// import authDto from '../models/auth.models';
-
-// export default new Elysia()
-//   .use(loginHandler)
-//   .post('/register', register, { body: 'auth.register' });
-
-import Elysia, { Context } from 'elysia';
+import { eq } from 'drizzle-orm';
+import Elysia from 'elysia';
+import db from '../databases/db';
+import { users } from '../databases/schema';
+import { BadRequestError } from '../errors/badrequest.errors';
 import authModel from '../models/auth.models';
+import { hashPassword, isMatchPassword } from '../utils/password';
+import jwt from '@elysiajs/jwt';
 
-const auth = new Elysia().use(authModel);
+const auth = new Elysia()
+  .use(jwt({ secret: process.env.JWT_SECRET || 'development' }))
+  .use(authModel);
 
-auth.post('/login', ({ body, set }: Context) => {
+auth.post(
+  '/login',
+  async ({ body, jwt }) => {
+    const { email, password } = body;
 
-}, { body: 'auth.login' });
+    const user = (
+      await db
+        .select({ email: users.email, password: users.password })
+        .from(users)
+        .where(eq(users.email, email))
+        .limit(1)
+    ).at(0);
+
+    const isValidCredentials = user && await isMatchPassword(password, user.password);
+    if (!isValidCredentials) {
+      throw new BadRequestError('Invalid credentials. Please try again.');
+    }
+
+    // we could have added more things here, but let's simplify 😊
+    return jwt.sign({ email });
+  },
+  { body: 'auth.login' },
+);
+
+auth.post(
+  '/register',
+  async ({ body }) => {
+    const { email, password, name } = body;
+
+    const user = (
+      await db
+        .select({ id: users.id })
+        .from(users)
+        .where(eq(users.email, email))
+        .limit(1)
+    ).at(0);
+
+    if (user) {
+      throw new BadRequestError('A user with this email already exists.');
+    }
+
+    return (
+      await db
+        .insert(users)
+        .values({
+          email,
+          password: await hashPassword(password),
+          name,
+        })
+        .returning({
+          id: users.id,
+          email: users.email,
+          name: users.name,
+        })
+    ).at(0);
+  },
+  {
+    body: 'auth.register',
+  },
+);
 
 export default auth;
