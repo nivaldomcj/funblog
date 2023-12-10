@@ -4,7 +4,8 @@ This is a simple "blog" backend project I did for fun to learn while I'm learnin
 
 - Bun
 - ElysiaJS
-- DrizzleORM with PostgreSQL
+- DrizzleORM
+- PostgreSQL
 
 ### How to run?
 
@@ -23,8 +24,9 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ Post entities: id, title, content, author[user], created_at, updated_at
     - ✔️ Comment entities: id, author[user], [post], text, created_at, updated_at
 - ❌ Implement routes:
-    - ❌ POST /login => do login
-    - ❌ POST /register => create user
+    - ✔️ POST /login => do login
+    - ✔️ POST /register => create user
+    - ❌ GET /profile => get user data [need auth]
     - ❌ PUT /profile => update user data [need auth]
     - ❌ GET /users/:id => get user info by id [need auth]
     - ❌ GET /posts => list all posts
@@ -38,7 +40,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ❌ PUT /posts/:id/comments/:id => update a comment by id [need auth]
     - ❌ DELETE /posts/:id/comments/:id => delete a comment by id [need auth]
 - ❌ Tasks:
-    - ❌ Implement auth (JWT?)
+    - ✔️ Implement simple authentication (JWT)
     - ❌ Implement pagination
     - ❌ Add filters to search posts by something
 - ❌ Extras:
