@@ -2,10 +2,11 @@ import { eq } from 'drizzle-orm';
 import Elysia from 'elysia';
 import db from '../databases/db';
 import { users } from '../databases/schema';
-import { BadRequestError } from '../errors/badrequest.errors';
+import { BadRequestError } from '../errors/badrequest.error';
+import { UnauthorizedError } from '../errors/unauthorized.error';
 import authModel from '../models/auth.model';
-import { hashPassword, isMatchPassword } from '../utils/password';
 import jwtPlugin from '../plugins/jwt.plugin';
+import { hashPassword, isMatchPassword } from '../utils/password.utils';
 
 const auth = new Elysia()
   .use(jwtPlugin)
@@ -24,12 +25,13 @@ auth.post(
         .limit(1)
     ).at(0);
 
-    const isValidCredentials = user && await isMatchPassword(password, user.password);
+    const isValidCredentials =
+      user && (await isMatchPassword(password, user.password));
     if (!isValidCredentials) {
-      throw new BadRequestError('Invalid credentials. Please try again.');
+      throw new UnauthorizedError();
     }
 
-    // we could have added more things here, but let's simplify 😊
+    // we could have added more things here, but let's simplify
     return jwt.sign({ email });
   },
   { body: 'auth.login' },

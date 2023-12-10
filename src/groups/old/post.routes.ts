@@ -5,7 +5,7 @@ import {
   getPost,
   listPosts,
   updatePost,
-} from '../handlers/post.handlers';
+} from '../../handlers/post.handlers';
 
 export default new Elysia({ prefix: 'post' })
   .get('/', listPosts)

@@ -1,12 +1,14 @@
 import { Elysia } from 'elysia';
-import { BadRequestError } from './errors/badrequest.errors';
-import { ForbiddenError } from './errors/forbidden.errors';
+import { BadRequestError } from './errors/badrequest.error';
+import { ForbiddenError } from './errors/forbidden.error';
 import groups from './groups';
+import { UnauthorizedError } from './errors/unauthorized.error';
 
 const app = new Elysia()
   .error({
     BAD_REQUEST: BadRequestError,
     FORBIDDEN: ForbiddenError,
+    UNAUTHORIZED: UnauthorizedError,
   })
   .onError(({ code, error }) => {
     switch (code) {
@@ -26,7 +28,5 @@ console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
 );
 
-// TODO? https://elysiajs.com/plugins/jwt.html
-// TODO? https://elysiajs.com/plugins/bearer.html
 // TODO? https://elysiajs.com/plugins/swagger.html
 // TODO? https://elysiajs.com/concept/life-cycle.html#local-hook

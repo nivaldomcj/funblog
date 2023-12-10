@@ -4,7 +4,7 @@ import {
   getComment,
   listComments,
   updateComment,
-} from '../handlers/comment.handlers';
+} from '../../handlers/comment.handlers';
 import postRoutes from './post.routes';
 
 // Comment is a child of Post
