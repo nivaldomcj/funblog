@@ -26,7 +26,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
 - ❌ Implement routes:
     - ✔️ POST /login => do login
     - ✔️ POST /register => create user
-    - ❌ GET /profile => get user data [need auth]
+    - ✔️ GET /profile => get user data [need auth]
     - ❌ PUT /profile => update user data [need auth]
     - ❌ GET /users/:id => get user info by id [need auth]
     - ❌ GET /posts => list all posts
