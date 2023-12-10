@@ -3,12 +3,12 @@ import Elysia from 'elysia';
 import db from '../databases/db';
 import { users } from '../databases/schema';
 import { BadRequestError } from '../errors/badrequest.errors';
-import authModel from '../models/auth.models';
+import authModel from '../models/auth.model';
 import { hashPassword, isMatchPassword } from '../utils/password';
-import jwt from '@elysiajs/jwt';
+import jwtPlugin from '../plugins/jwt.plugin';
 
 const auth = new Elysia()
-  .use(jwt({ secret: process.env.JWT_SECRET || 'development' }))
+  .use(jwtPlugin)
   .use(authModel);
 
 auth.post(
@@ -67,9 +67,7 @@ auth.post(
         })
     ).at(0);
   },
-  {
-    body: 'auth.register',
-  },
+  { body: 'auth.register' },
 );
 
 export default auth;
