@@ -1,6 +1,6 @@
 # funblog
 
-This is a simple "blog" backend project I did for fun to learn while I'm learning the following stack:
+This is a simple "blog" backend project I did for fun while I was learning the following stack:
 
 - Bun
 - ElysiaJS
