@@ -30,9 +30,9 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ PUT /profile => update user data [need auth]
     - ✔️ GET /users/:id => get user info by id [need auth]
     - ✔️ GET /users/change-password => change user password [need auth]
-    - ❌ GET /posts => list all posts
-    - ❌ GET /posts/:id => get post by id
-    - ❌ POST /posts => create post [need auth]
+    - ✔️ GET /posts => list all posts
+    - ✔️ GET /posts/:id => get post by id
+    - ✔️ POST /posts => create post [need auth]
     - ❌ PUT /posts/:id => update post [need auth] (update own post)
     - ❌ DELETE /posts/:id => delete post [need auth] (delete own post)
     - ❌ GET /posts/:id/comments => list post comments

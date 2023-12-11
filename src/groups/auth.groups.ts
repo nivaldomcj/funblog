@@ -23,7 +23,7 @@ auth.post(
         .from(users)
         .where(eq(users.email, email))
         .limit(1)
-    ).at(0);
+    ).at(0) || null;
 
     const isValidCredentials =
       user && (await isMatchPassword(password, user.password));
@@ -48,7 +48,7 @@ auth.post(
         .from(users)
         .where(eq(users.email, email))
         .limit(1)
-    ).at(0);
+    ).at(0) || null;
 
     if (user) {
       throw new BadRequestError('A user with this email already exists.');
@@ -67,7 +67,7 @@ auth.post(
           email: users.email,
           name: users.name,
         })
-    ).at(0);
+    ).at(0) || null;
   },
   { body: 'auth.register' },
 );

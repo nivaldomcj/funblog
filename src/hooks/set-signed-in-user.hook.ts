@@ -25,7 +25,7 @@ export const setSignInUser = async ({
       .from(users)
       .where(eq(users.email, email))
       .limit(1)
-  ).at(0);
+  ).at(0) || null;
 
   if (!result) {
     throw new UnauthorizedError();

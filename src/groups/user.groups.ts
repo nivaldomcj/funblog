@@ -35,7 +35,7 @@ user.get(
         .from(users)
         .where(eq(users.id, user_id))
         .limit(1)
-    ).at(0);
+    ).at(0) || null;
     if (!user) throw new NotFoundError();
     return user;
   },
@@ -55,7 +55,7 @@ user.patch(
         .set({ name })
         .where(eq(users.id, id))
         .returning({ id: users.id, email: users.email, name: users.name })
-    ).at(0);
+    ).at(0) || null;
   },
   {
     beforeHandle: setSignInUser,
