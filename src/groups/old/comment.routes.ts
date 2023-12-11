@@ -5,7 +5,7 @@ import {
   listComments,
   updateComment,
 } from '../../handlers/comment.handlers';
-import postRoutes from './post.routes';
+import postRoutes from '../post.groups';
 
 // Comment is a child of Post
 export default postRoutes

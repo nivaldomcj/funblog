@@ -4,7 +4,7 @@ import db from '../databases/db';
 import { users } from '../databases/schema';
 import { BadRequestError } from '../errors/badrequest.error';
 import { UnauthorizedError } from '../errors/unauthorized.error';
-import authModel from '../models/auth.model';
+import authModel from '../dtos/models/auth.dto';
 import jwtPlugin from '../plugins/jwt.plugin';
 import { hashPassword, isMatchPassword } from '../utils/password.utils';
 

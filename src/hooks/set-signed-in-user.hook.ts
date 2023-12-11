@@ -3,7 +3,7 @@ import db from '../databases/db';
 import { users } from '../databases/schema';
 import { UnauthorizedError } from '../errors/unauthorized.error';
 
-export const injectSignedInUser = async ({
+export const setSignInUser = async ({
   bearer,
   jwt,
   request,

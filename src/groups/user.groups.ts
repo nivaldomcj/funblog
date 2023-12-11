@@ -3,12 +3,12 @@ import { eq } from 'drizzle-orm';
 import Elysia, { NotFoundError } from 'elysia';
 import db from '../databases/db';
 import { users } from '../databases/schema';
-import { injectSignedInUser } from '../hooks/inject-signed-in-user.hook';
-import userModel from '../models/user.model';
+import { BadRequestError } from '../errors/badrequest.error';
+import { setSignInUser } from '../hooks/set-signed-in-user.hook';
+import userModel from '../dtos/models/user.dto';
 import jwtPlugin from '../plugins/jwt.plugin';
 import { CustomRequest } from '../types/custom-request.type';
 import { hashPassword, isMatchPassword } from '../utils/password.utils';
-import { BadRequestError } from '../errors/badrequest.error';
 
 const user = new Elysia({ prefix: '/user' })
   .use(userModel)
@@ -22,25 +22,25 @@ user.get(
     return { id, email, name };
   },
   {
-    beforeHandle: injectSignedInUser,
+    beforeHandle: setSignInUser,
   },
 );
 
 user.get(
-  '/profile/:id',
-  async ({ params: { id } }) => {
+  '/profile/:user_id',
+  async ({ params: { user_id } }) => {
     const user = (
       await db
         .select({ id: users.id, email: users.email, name: users.name })
         .from(users)
-        .where(eq(users.id, id))
+        .where(eq(users.id, user_id))
         .limit(1)
     ).at(0);
     if (!user) throw new NotFoundError();
     return user;
   },
   {
-    beforeHandle: injectSignedInUser,
+    beforeHandle: setSignInUser,
   },
 );
 
@@ -58,30 +58,34 @@ user.patch(
     ).at(0);
   },
   {
-    beforeHandle: injectSignedInUser,
-    body: 'user.profile'
+    beforeHandle: setSignInUser,
+    body: 'user.profile',
   },
 );
 
-user.patch('/change-password', async ({ body: { oldPassword, newPassword }, request, set }) => {
-  const { id, password } = (request as CustomRequest).user;
-  const isOldPasswordCorrect = await isMatchPassword(oldPassword, password);
+user.patch(
+  '/change-password',
+  async ({ body: { oldPassword, newPassword }, request, set }) => {
+    const { id, password } = (request as CustomRequest).user;
+    const isOldPasswordCorrect = await isMatchPassword(oldPassword, password);
 
-  if (!isOldPasswordCorrect) {
-    throw new BadRequestError('Old password is incorrect. Please try again.');
-  }
+    if (!isOldPasswordCorrect) {
+      throw new BadRequestError('Old password is incorrect. Please try again.');
+    }
 
-  const hashedNewPassword = await hashPassword(newPassword);
-  await db
-    .update(users)
-    .set({ password: hashedNewPassword })
-    .where(eq(users.id, id));
+    const hashedNewPassword = await hashPassword(newPassword);
+    await db
+      .update(users)
+      .set({ password: hashedNewPassword })
+      .where(eq(users.id, id));
 
-  // nothing to do...
-  set.status = 204;
-}, {
-  beforeHandle: injectSignedInUser,
-  body: 'user.changePassword',
-});
+    // nothing to do...
+    set.status = 204;
+  },
+  {
+    beforeHandle: setSignInUser,
+    body: 'user.changePassword',
+  },
+);
 
 export default user;
