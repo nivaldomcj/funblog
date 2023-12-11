@@ -9,10 +9,9 @@ This is a simple "blog" backend project I did for fun while I was learning the f
 
 ### How to run?
 
-- Install bun
-- Checkout project
-- Run with: ```bun dev```
-- ...?
+- Install docker & docker compose
+- Clone this project
+- Run it with `docker compose up -d`
 
 ### List of things to do
 
@@ -39,9 +38,9 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ GET /posts/:id/comments/:id => get comment by id [need auth]
     - ✔️ PUT /posts/:id/comments/:id => update a comment by id [need auth]
     - ✔️ DELETE /posts/:id/comments/:id => delete a comment by id [need auth]
-- ❌ Extras:
+- ✔️ Extras:
     - ✔️ Create docker-compose file
     - ✔️ Add swagger plugin
-    - ❌ Create Dockerfile
-    - ❌ Rewrite "how to run" section
+    - ✔️ Create Dockerfile
+    - ✔️ Rewrite "how to run" section
     - ✔️ Implement simple GraphQL query
