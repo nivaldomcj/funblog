@@ -29,7 +29,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ GET /profile => get user data [need auth]
     - ✔️ PUT /profile => update user data [need auth]
     - ✔️ GET /users/:id => get user info by id [need auth]
-    - ❌ GET /users/change-password => change user password [need auth]
+    - ✔️ GET /users/change-password => change user password [need auth]
     - ❌ GET /posts => list all posts
     - ❌ GET /posts/:id => get post by id
     - ❌ POST /posts => create post [need auth]
