@@ -11,6 +11,7 @@
   "dependencies": {
     "@elysiajs/bearer": "^0.7.0",
     "@elysiajs/jwt": "^0.7.0",
+    "@elysiajs/swagger": "^0.7.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "drizzle-orm": "^0.29.1",

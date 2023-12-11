@@ -24,6 +24,9 @@ comment.get(
   },
   {
     beforeHandle: setSignInUser,
+    detail: {
+      tags: ['comment']
+    },
   },
 );
 
@@ -55,6 +58,9 @@ comment.post(
   {
     beforeHandle: setSignInUser,
     body: 'comment',
+    detail: {
+      tags: ['comment']
+    },
   },
 );
 
@@ -75,6 +81,9 @@ comment.get(
   },
   {
     beforeHandle: setSignInUser,
+    detail: {
+      tags: ['comment']
+    },
   },
 );
 
@@ -120,6 +129,9 @@ comment.put(
   {
     beforeHandle: setSignInUser,
     body: 'comment',
+    detail: {
+      tags: ['comment']
+    },
   },
 );
 
@@ -163,6 +175,9 @@ comment.delete(
   },
   {
     beforeHandle: setSignInUser,
+    detail: {
+      tags: ['comment']
+    },
   },
 );
 

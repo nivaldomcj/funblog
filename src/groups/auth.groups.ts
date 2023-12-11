@@ -34,7 +34,12 @@ auth.post(
     // we could have added more things here, but let's simplify
     return jwt.sign({ email });
   },
-  { body: 'auth.login' },
+  {
+    body: 'auth.login',
+    detail: {
+      tags: ['auth']
+    },
+  },
 );
 
 auth.post(
@@ -69,7 +74,12 @@ auth.post(
         })
     ).at(0) || null;
   },
-  { body: 'auth.register' },
+  {
+    body: 'auth.register',
+    detail: {
+      tags: ['auth']
+    },
+  },
 );
 
 export default auth;

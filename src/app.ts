@@ -1,8 +1,9 @@
 import { Elysia } from 'elysia';
 import { BadRequestError } from './errors/badrequest.error';
 import { ForbiddenError } from './errors/forbidden.error';
-import groups from './groups';
 import { UnauthorizedError } from './errors/unauthorized.error';
+import groups from './groups';
+import swaggerPlugin from './plugins/swagger.plugin';
 
 const app = new Elysia()
   .error({
@@ -21,6 +22,7 @@ const app = new Elysia()
         return { code, message: error.message };
     }
   })
+  .use(swaggerPlugin)
   .use(groups)
   .listen(3000);
 
@@ -29,4 +31,3 @@ console.log(
 );
 
 // TODO? https://elysiajs.com/plugins/swagger.html
-// TODO? https://elysiajs.com/concept/life-cycle.html#local-hook

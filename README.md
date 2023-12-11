@@ -42,6 +42,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ DELETE /posts/:id/comments/:id => delete a comment by id [need auth]
 - ❌ Extras:
     - ✔️ Create docker-compose file
+    - ✔️ Add swagger plugin
     - ❌ Create Dockerfile
     - ❌ Rewrite "how to run" section
     - ❌ Implement GraphQL

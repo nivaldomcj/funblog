@@ -23,6 +23,9 @@ user.get(
   },
   {
     beforeHandle: setSignInUser,
+    detail: {
+      tags: ['user']
+    },
   },
 );
 
@@ -41,6 +44,9 @@ user.get(
   },
   {
     beforeHandle: setSignInUser,
+    detail: {
+      tags: ['user']
+    },
   },
 );
 
@@ -60,6 +66,9 @@ user.patch(
   {
     beforeHandle: setSignInUser,
     body: 'user.profile',
+    detail: {
+      tags: ['user']
+    },
   },
 );
 
@@ -85,6 +94,9 @@ user.patch(
   {
     beforeHandle: setSignInUser,
     body: 'user.changePassword',
+    detail: {
+      tags: ['user']
+    },
   },
 );
 

@@ -20,7 +20,10 @@ post.get(
     return await db.select().from(posts).orderBy(desc(posts.created_at));
   },
   {
-    beforeHandle: setSignInUser
+    beforeHandle: setSignInUser,
+    detail: {
+      tags: ['post']
+    },
   },
 );
 
@@ -36,7 +39,10 @@ post.get(
     ).at(0) || null;
   },
   {
-    beforeHandle: setSignInUser
+    beforeHandle: setSignInUser,
+    detail: {
+      tags: ['post']
+    },
   }
 );
 
@@ -56,6 +62,9 @@ post.post(
   {
     beforeHandle: setSignInUser,
     body: 'post',
+    detail: {
+      tags: ['post']
+    },
   }
 );
 
@@ -87,6 +96,9 @@ post.put(
   {
     beforeHandle: setSignInUser,
     body: 'post',
+    detail: {
+      tags: ['post']
+    },
   }
 );
 
@@ -116,7 +128,10 @@ post.delete(
     ).at(0) || null;
   },
   {
-    beforeHandle: setSignInUser
+    beforeHandle: setSignInUser,
+    detail: {
+      tags: ['post']
+    },
   }
 );
 
