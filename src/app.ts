@@ -31,5 +31,3 @@ const app = new Elysia()
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`,
 );
-
-// TODO? https://elysiajs.com/plugins/swagger.html
