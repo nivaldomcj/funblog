@@ -4,13 +4,13 @@ import db from '../databases/db';
 import { users } from '../databases/schema';
 import { BadRequestError } from '../errors/badrequest.error';
 import { UnauthorizedError } from '../errors/unauthorized.error';
-import authModel from '../dtos/models/auth.dto';
 import jwtPlugin from '../plugins/jwt.plugin';
 import { hashPassword, isMatchPassword } from '../utils/password.utils';
+import authDto from '../dtos/auth.dto';
 
 const auth = new Elysia()
   .use(jwtPlugin)
-  .use(authModel);
+  .use(authDto);
 
 auth.post(
   '/login',

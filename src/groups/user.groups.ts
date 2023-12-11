@@ -5,13 +5,13 @@ import db from '../databases/db';
 import { users } from '../databases/schema';
 import { BadRequestError } from '../errors/badrequest.error';
 import { setSignInUser } from '../hooks/set-signed-in-user.hook';
-import userModel from '../dtos/models/user.dto';
 import jwtPlugin from '../plugins/jwt.plugin';
 import { CustomRequest } from '../types/custom-request.type';
 import { hashPassword, isMatchPassword } from '../utils/password.utils';
+import userDto from '../dtos/user.dto';
 
 const user = new Elysia({ prefix: '/user' })
-  .use(userModel)
+  .use(userDto)
   .use(jwtPlugin)
   .use(bearer());
 
@@ -52,7 +52,7 @@ user.patch(
     return (
       await db
         .update(users)
-        .set({ name })
+        .set({ name, updated_at: new Date() })
         .where(eq(users.id, id))
         .returning({ id: users.id, email: users.email, name: users.name })
     ).at(0) || null;
@@ -76,7 +76,7 @@ user.patch(
     const hashedNewPassword = await hashPassword(newPassword);
     await db
       .update(users)
-      .set({ password: hashedNewPassword })
+      .set({ password: hashedNewPassword, updated_at: new Date() })
       .where(eq(users.id, id));
 
     // nothing to do...
