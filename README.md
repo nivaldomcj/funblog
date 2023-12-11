@@ -27,8 +27,9 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ POST /login => do login
     - ✔️ POST /register => create user
     - ✔️ GET /profile => get user data [need auth]
-    - ❌ PUT /profile => update user data [need auth]
+    - ✔️ PUT /profile => update user data [need auth]
     - ✔️ GET /users/:id => get user info by id [need auth]
+    - ❌ GET /users/change-password => change user password [need auth]
     - ❌ GET /posts => list all posts
     - ❌ GET /posts/:id => get post by id
     - ❌ POST /posts => create post [need auth]
@@ -41,7 +42,7 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ❌ DELETE /posts/:id/comments/:id => delete a comment by id [need auth]
 - ❌ Tasks:
     - ✔️ Implement simple authentication (JWT)
-    - ❌ Implement pagination
+    - ❌ Implement pagination on post/comments endpoints
     - ❌ Add filters to search posts by something
 - ❌ Extras:
     - ✔️ Create docker-compose file
