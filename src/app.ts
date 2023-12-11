@@ -4,6 +4,7 @@ import { ForbiddenError } from './errors/forbidden.error';
 import { UnauthorizedError } from './errors/unauthorized.error';
 import groups from './groups';
 import swaggerPlugin from './plugins/swagger.plugin';
+import apolloPlugin from './plugins/apollo.plugin';
 
 const app = new Elysia()
   .error({
@@ -23,6 +24,7 @@ const app = new Elysia()
     }
   })
   .use(swaggerPlugin)
+  .use(apolloPlugin)
   .use(groups)
   .listen(3000);
 

@@ -14,7 +14,6 @@ This is a simple "blog" backend project I did for fun while I was learning the f
 - Run with: ```bun dev```
 - ...?
 
-
 ### List of things to do
 
 This is just for myself to remember what to do here. Hope it will be fully finished.
@@ -45,4 +44,4 @@ This is just for myself to remember what to do here. Hope it will be fully finis
     - ✔️ Add swagger plugin
     - ❌ Create Dockerfile
     - ❌ Rewrite "how to run" section
-    - ❌ Implement GraphQL
+    - ✔️ Implement simple GraphQL query

@@ -9,6 +9,8 @@
     "db-migrate": "bun src/databases/migrate.ts"
   },
   "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@elysiajs/apollo": "^0.7.0",
     "@elysiajs/bearer": "^0.7.0",
     "@elysiajs/jwt": "^0.7.0",
     "@elysiajs/swagger": "^0.7.4",
@@ -17,6 +19,7 @@
     "drizzle-orm": "^0.29.1",
     "elysia": "latest",
     "eslint-plugin-drizzle": "^0.2.2",
+    "graphql": "^16.8.1",
     "postgres": "^3.4.3"
   },
   "devDependencies": {
